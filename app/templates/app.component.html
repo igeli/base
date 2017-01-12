@@ -1,0 +1,21 @@
+<h1> {{title}}</h1>
+<h2> Lista de usuarios </h2> 
+  <ul class="users">
+    <li *ngFor="let user of usuarios" [class.selected]="user === selectedUser" (click)="onSelect(user)">
+      <span class="badge">{{user.id}}</span> {{user.nombre}} {{user.apellido}}
+    </li>
+  </ul>
+
+<div *ngIf="selectedUser">
+  <h2>Detalles de: {{selectedUser.nombre}} {{selectedUser.apellido}}</h2>
+  <div><label>Id: </label>{{selectedUser.id}}</div>
+  <div><label>usuarios: </label>{{selectedUser.usr}}</div>
+  <div>
+    <label>Nombre: </label>
+    <input [(ngModel)]="selectedUser.nombre" placeholder="nombre">
+  </div>
+  <div>
+    <label>Apellido: </label>
+    <input [(ngModel)]="selectedUser.apellido" placeholder="apellido">
+  </div>
+</div>

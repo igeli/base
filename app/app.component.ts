@@ -7,7 +7,7 @@ export class User{
 	usr: string;
 }
 
-const USERS: Users[] = [
+const USERS: User[] = [
   { id: 1, usr: 'jgomez', nombre: 'Juan', apellido: 'Gomez' },
   { id: 2, usr: 'jperez', nombre: 'Gorge', apellido: 'Perez' },
   { id: 3, usr: 'igeli', nombre: 'Ignacio', apellido: 'Gelis' },
@@ -23,85 +23,16 @@ const USERS: Users[] = [
 
 
 @Component({
+  moduleId: module.id,
   selector: 'my-app',
-  template: `<h1> {{title}}</h1>
-
-            <h2> Lista de usuarios </h2> 
-            <ul class="users">
-              <li *ngFor="let user of usuarios" (click)="onSelect(user)">
-              <span class="badge">{{user.id}}</span> {{user.nombre}} {{user.apellido}}
-              </li>
-            </ul>
-      			<h2>Detalles de: {{selectedUser.nombre}} {{selectedUser.apellido}}</h2>
-  		    	<div><label>Id: </label>{{selectedUser.id}}</div>
-  			    <div><label>usuarios: </label>{{selectedUser.usr}}</div>
-	  		    <div>
-      			  <label>Nombre: </label>
-      			  <input [(ngModel)]="selectedUser.nombre" placeholder="nombre">
-  			    </div>
-  			    <div>
-      			  <label>Apellido: </label>
-      		    <input [(ngModel)]="selectedUser.apellido" placeholder="apellido">
-  			    </div>
-  			`,
-  styles: [`
-  .selected {
-    background-color: #CFD8DC !important;
-    color: white;
-  }
-  .users {
-    margin: 0 0 2em 0;
-    list-style-type: none;
-    padding: 0;
-    width: 15em;
-  }
-  .users li {
-    cursor: pointer;
-    position: relative;
-    left: 0;
-    background-color: #EEE;
-    margin: .5em;
-    padding: .3em 0;
-    height: 1.6em;
-    border-radius: 4px;
-  }
-  .users li.selected:hover {
-    background-color: #BBD8DC !important;
-    color: white;
-  }
-  .users li:hover {
-    color: #607D8B;
-    background-color: #DDD;
-    left: .1em;
-  }
-  .users .text {
-    position: relative;
-    top: -3px;
-  }
-  .users .badge {
-    display: inline-block;
-    font-size: small;
-    color: white;
-    padding: 0.8em 0.7em 0 0.7em;
-    background-color: #607D8B;
-    line-height: 1em;
-    position: relative;
-    left: -1px;
-    top: -4px;
-    height: 1.8em;
-    margin-right: .8em;
-    border-radius: 4px 0 0 4px;
-  }
-`]
-
+  templateUrl: 'templates/app.component.html',
+  styleUrls: [ 'templates/app.component.css' ],
 })
 
 export class AppComponent  { 
 	title = "Administración"	
   usuarios = USERS;
-  selectedUser : User = { id: 0 , usr: '', nombre: '', apellido: '' }
-
-
+  selectedUser : User;
   onSelect(user: User){
   this.selectedUser= user;
   }
