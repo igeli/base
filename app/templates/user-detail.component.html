@@ -1,0 +1,14 @@
+<div *ngIf="user">
+
+  <h2>Detalles de: {{user.nombre}} {{user.apellido}}</h2>
+  <div><label>Id: </label>{{user.id}}</div>
+  <div><label>usuarios: </label>{{user.usr}}</div>
+  <div>
+    <label>Nombre: </label>
+    <input [(ngModel)]="user.nombre" placeholder="nombre">
+  </div>
+  <div>
+    <label>Apellido: </label>
+    <input [(ngModel)]="user.apellido" placeholder="apellido">
+  </div>
+</div>

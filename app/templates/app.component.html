@@ -6,16 +6,4 @@
     </li>
   </ul>
 
-<div *ngIf="selectedUser">
-  <h2>Detalles de: {{selectedUser.nombre}} {{selectedUser.apellido}}</h2>
-  <div><label>Id: </label>{{selectedUser.id}}</div>
-  <div><label>usuarios: </label>{{selectedUser.usr}}</div>
-  <div>
-    <label>Nombre: </label>
-    <input [(ngModel)]="selectedUser.nombre" placeholder="nombre">
-  </div>
-  <div>
-    <label>Apellido: </label>
-    <input [(ngModel)]="selectedUser.apellido" placeholder="apellido">
-  </div>
-</div>
+<user-detail [user]="selectedUser"> </user-detail>

@@ -1,11 +1,7 @@
 import { Component } from '@angular/core';
 
-export class User{
-	id: number
-	nombre: string;
-	apellido: string;
-	usr: string;
-}
+import { User } from './user'
+
 
 const USERS: User[] = [
   { id: 1, usr: 'jgomez', nombre: 'Juan', apellido: 'Gomez' },
@@ -14,7 +10,7 @@ const USERS: User[] = [
   { id: 4, usr: 'uber', nombre: 'Uriel', apellido: 'Ber' },
   { id: 5, usr: 'mgonzalez', nombre: 'Maria', apellido: 'Gonzalez' },
   { id: 6, usr: 'astigarribia', nombre: 'Adrian', apellido: 'Stogarribia' },
-  { id: 7, usr: 'rpiannarelli', nombre: 'Roberto', apellido: 'Piannarelli' },
+  { id: 7, usr: 'rpasarela', nombre: 'Roberto', apellido: 'Pasarela' },
   { id: 8, usr: 'aleschuk', nombre: 'Ariel', apellido: 'Leschuk' },
   { id: 9, usr: 'hpotter', nombre: 'Harry', apellido: 'Potter' },
   { id: 10, usr: 'dmalfoy', nombre: 'Draco', apellido: 'Malfoy' }
