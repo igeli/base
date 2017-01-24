@@ -1,20 +1,6 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { UserService} from './user.service';
 import { User } from './user'
-
-
-const USERS: User[] = [
-  { id: 1, usr: 'jgomez', nombre: 'Juan', apellido: 'Gomez' },
-  { id: 2, usr: 'jperez', nombre: 'Gorge', apellido: 'Perez' },
-  { id: 3, usr: 'igeli', nombre: 'Ignacio', apellido: 'Gelis' },
-  { id: 4, usr: 'uber', nombre: 'Uriel', apellido: 'Ber' },
-  { id: 5, usr: 'mgonzalez', nombre: 'Maria', apellido: 'Gonzalez' },
-  { id: 6, usr: 'astigarribia', nombre: 'Adrian', apellido: 'Stogarribia' },
-  { id: 7, usr: 'rpasarela', nombre: 'Roberto', apellido: 'Pasarela' },
-  { id: 8, usr: 'aleschuk', nombre: 'Ariel', apellido: 'Leschuk' },
-  { id: 9, usr: 'hpotter', nombre: 'Harry', apellido: 'Potter' },
-  { id: 10, usr: 'dmalfoy', nombre: 'Draco', apellido: 'Malfoy' }
-];
 
 
 
@@ -23,13 +9,28 @@ const USERS: User[] = [
   selector: 'my-app',
   templateUrl: 'templates/app.component.html',
   styleUrls: [ 'templates/app.component.css' ],
+  providers: [ UserService ],
+
 })
 
-export class AppComponent  { 
-	title = "Administración"	
-  usuarios = USERS;
+export class AppComponent implements OnInit { 
+	title = "Administración";
+  //usuarios = User[]; //Si inicializo usuarios, no funciona
   selectedUser : User;
+
+  constructor(private userService: UserService){};
+  
+  getUsers(): void{
+    //this.usuarios = this.userService.getUsers();
+    this.userService.getUsers().then(usuarios => this.usuarios = usuarios);
+  };
+
+  ngOnInit():void{
+    this.getUsers();
+  };
+    
   onSelect(user: User){
   this.selectedUser= user;
   }
+    
 }
