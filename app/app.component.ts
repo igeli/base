@@ -1,36 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService} from './user.service';
-import { User } from './user'
-
-
+import { Component } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
   selector: 'my-app',
-  templateUrl: 'templates/app.component.html',
-  styleUrls: [ 'templates/app.component.css' ],
-  providers: [ UserService ],
+  template: `
+    <h1>{{title}}</h1>
+    <a routerLink="/"> Home </a>
+    <a routerLink="/users"> Users </a>
 
+    <router-outlet> </router-outlet>
+  `
 })
-
-export class AppComponent implements OnInit { 
-	title = "Administración";
-  //usuarios = User[]; //Si inicializo usuarios, no funciona
-  selectedUser : User;
-
-  constructor(private userService: UserService){};
-  
-  getUsers(): void{
-    //this.usuarios = this.userService.getUsers();
-    this.userService.getUsers().then(usuarios => this.usuarios = usuarios);
-  };
-
-  ngOnInit():void{
-    this.getUsers();
-  };
-    
-  onSelect(user: User){
-  this.selectedUser= user;
-  }
-    
+export class AppComponent {
+  title = 'Menu';
 }
