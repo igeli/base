@@ -1,7 +1,7 @@
 <h2> Lista de grupos </h2> 
   <ul class="users">
-    <li *ngFor="let group of groups" [class.selected]="group === selectedGroup" (click)="onSelect(group)">
+    <li *ngFor="let group of groups" [routerLink]="['/group', group.id]"   [class.selected]="group === selectedGroup" (click)="onSelect(group)">
       <span class="badge">{{group.id}}</span> {{group.nombre}}
-    </li>
+      </li>
   </ul>
 

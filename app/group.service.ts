@@ -10,4 +10,8 @@ export class GroupService {
 		return Promise.resolve(GROUPS);
 	} // stub
 
+	getGroup(id: number): Promise<Group> {
+		return  this.getGroups()
+			.then(groups => groups.find(group => group.id === id));
+	}
 }

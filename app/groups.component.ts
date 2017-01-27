@@ -7,13 +7,13 @@ import { Group }	from './group';
 	moduleId: module.id,
 	selector: 'my-groups',
 	templateUrl: 'templates/groups.component.html',
-	styleUrls: [ 'templates/users.component.css' ],
+	styleUrls: [ 'templates/groups.component.css' ],
 })
 
 export class GroupsComponent implements OnInit {
 
 	title = "Grupos";
-  	g//roups = Group[];
+  	//roups = Group[];
   	selectedGroup : Group;
 
 	constructor(private groupService: GroupService){};
