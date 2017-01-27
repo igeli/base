@@ -12,7 +12,7 @@ import { User } from './user'
 })
 
 export class UsersComponent implements OnInit { 
-	title = "Administración";
+	title = "Usuarios";
   //usuarios = User[]; //Si inicializo usuarios, no funciona
   selectedUser : User;
 
