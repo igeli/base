@@ -1,10 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
+
 import { GroupService}				from './group.service';
 import { Group } 					from './group';
-import 'rxjs/add/operator/switchMap';
 
+import 'rxjs/add/operator/switchMap';
 
 @Component({
 	moduleId: module.id,

@@ -1,4 +1,11 @@
 <!-- <h1> {{title}}</h1> -->
+<br><br>
+<div>
+	<label><b>Agregar usuario:</b>Nombre de usuario</label> <input #userName />
+	<button (click)="add(userName.value); username.value=''">
+		Agregar
+	</button>
+</div>
 <h2> Lista de usuarios </h2> 
   <ul class="users">
     <li *ngFor="let user of usuarios" [class.selected]="user === selectedUser" (click)="onSelect(user)">
@@ -6,4 +13,10 @@
     </li>
   </ul>
 
-<user-detail [user]="selectedUser"> </user-detail>
+<div *ngIf="selectedUser">
+  <h2>
+    Usuario: {{selectedUser.usr | uppercase}} seleccionado
+  </h2>
+  <button (click)="gotoDetail()">Ver detalles</button>
+</div>
+<!-- <user-detail [user]="selectedUser"> </user-detail> -->

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService} from './user.service';
 import { User } from './user'
 
@@ -12,11 +13,13 @@ import { User } from './user'
 })
 
 export class UsersComponent implements OnInit { 
-	title = "Usuarios";
-  //usuarios = User[]; //Si inicializo usuarios, no funciona
+	//usuarios = User[]; //Si inicializo usuarios, no funciona
+  title = "Usuarios";
   selectedUser : User;
 
-  constructor(private userService: UserService){};
+  constructor(
+    private router: Router,
+    private userService: UserService){};
   
   getUsers(): void{
     //this.usuarios = this.userService.getUsers();
@@ -29,6 +32,10 @@ export class UsersComponent implements OnInit {
     
   onSelect(user: User){
   this.selectedUser= user;
+  }
+
+  gotoDetail(): void {
+  this.router.navigate(['/user', this.selectedUser.id]);
   }
     
 }

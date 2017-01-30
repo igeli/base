@@ -10,6 +10,7 @@ const routes: Routes = [
 	{ path: 'users', component: UsersComponent },
 	{path: 'groups', component: GroupsComponent },
 	{ path: 'group/:id', component: GroupDetailComponent },
+	{ path: 'user/:id', component: UserDetailComponent },
 ];
 
 @NgModule ({
