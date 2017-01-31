@@ -37,5 +37,15 @@ export class UsersComponent implements OnInit {
   gotoDetail(): void {
   this.router.navigate(['/user', this.selectedUser.id]);
   }
-    
+
+  add(name: string):void{
+    name = name.trim();
+    if (!name) { return; }
+    this.userService.create(name)
+      .then(user => {
+        this.usuarios.push(user);
+        this.selectedUser = null;
+      });
+  }
+      
 }
