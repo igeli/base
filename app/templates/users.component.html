@@ -1,8 +1,12 @@
 <!-- <h1> {{title}}</h1> -->
 <br><br>
 <div>
-	<label><b>Agregar usuario:</b>Nombre de usuario</label> <input #userName />
-	<button (click)="add(userName.value); username.value=''">
+	<label><b>Agregar usuario </b>Nombre:</label> <input #userName />
+	<label>Apellido:</label> <input #userAp />
+  <label>Usr:</label> <input #user />
+
+
+	<button (click)="add(userAp.value, userName.value, user.value); userName.value=''; user.value=''; userAp.value=''">
 		Agregar
 	</button>
 </div>
@@ -10,6 +14,8 @@
   <ul class="users">
     <li *ngFor="let user of usuarios" [class.selected]="user === selectedUser" (click)="onSelect(user)">
       <span class="badge">{{user.id}}</span> {{user.nombre}} {{user.apellido}}
+      <button class="delete"
+        (click)="delete(user); $event.stopPropagation()">x</button>
     </li>
   </ul>
 

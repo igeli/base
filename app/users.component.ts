@@ -38,14 +38,23 @@ export class UsersComponent implements OnInit {
   this.router.navigate(['/user', this.selectedUser.id]);
   }
 
-  add(name: string):void{
+  add(ap: string, name:string, usr:string):void{
     name = name.trim();
-    if (!name) { return; }
-    this.userService.create(name)
+    if (!name||!ap) { return; }
+    this.userService.create(ap, name, usr)
       .then(user => {
         this.usuarios.push(user);
         this.selectedUser = null;
       });
+  }
+
+  delete (user: User): void{
+    this.userService
+    .delete(user.id)
+    .then(()=> {
+      this.usuarios = this.usuarios.filter(u => u !== user);
+      if (this.selectedUser === user) { this.selectedUser = null; }
+    });
   }
       
 }
