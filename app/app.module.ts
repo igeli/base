@@ -9,6 +9,7 @@ import { AppComponent }          from './app.component';
 import { UserDetailComponent }   from './user-detail.component';
 import { GroupDetailComponent }  from './group-detail.component';
 import { UsersComponent }        from './users.component';
+import { UserSearchComponent}    from './user-search.component';
 import { GroupsComponent }       from './groups.component';
 import { UserService }		       from './user.service';
 import { GroupService }		       from './group.service';
@@ -32,6 +33,7 @@ import { InMemoryDataService }  from './in-memory-data.service';
     AppComponent,
     UsersComponent,
     GroupsComponent,
+    UserSearchComponent,
     UserDetailComponent,
     GroupDetailComponent
   ],
